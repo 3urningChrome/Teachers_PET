@@ -1,3 +1,6 @@
 class SessionsController < Clearance::SessionsController
-      require 'method_missing_in_development'
+    
+  def url_after_destroy
+    root_url
+  end
 end

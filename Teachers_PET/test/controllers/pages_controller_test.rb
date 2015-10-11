@@ -19,6 +19,14 @@ class PagesControllerTest < ActionController::TestCase
     assert_select 'a', 'Sign in'    
   end
   
+  test "users not logged in should be able to sign up" do
+    get :index
+    assert_select "form input" do
+      assert_select "[value=?]", 'Sign up' 
+    end
+   
+  end  
+  
   test "should get index" do
     get :index
     assert_response :success
