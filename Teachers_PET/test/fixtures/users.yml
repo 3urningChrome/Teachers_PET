@@ -1,0 +1,13 @@
+one: 
+    email: "email@example1.com"
+    encrypted_password: "1.1"
+    confirmation_token: "1.2"
+    remember_token:     "1.3"
+    suspended:          false
+    
+two: 
+    email: "email@example2.com"
+    encrypted_password: "2.1"
+    confirmation_token: "2.2"
+    remember_token:     "2.3"
+    suspended:          false    
