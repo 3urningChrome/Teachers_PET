@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @timetable.user_id %>
+</p>
+
+<p>
+  <strong>Year start:</strong>
+  <%= @timetable.year_start %>
+</p>
+
+<p>
+  <strong>Year end:</strong>
+  <%= @timetable.year_end %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @timetable.name %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @timetable.school %>
+</p>
+
+<%= link_to 'Edit', edit_timetable_path(@timetable) %> |
+<%= link_to 'Back', timetables_path %>

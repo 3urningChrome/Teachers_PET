@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :timetables
   resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
 
