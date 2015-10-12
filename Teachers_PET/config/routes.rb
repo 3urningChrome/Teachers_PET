@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'pages/index'
   get 'pages/home_page'
+  post "/" => 'pages#set_current_timetable'
 
   resources :pages, only: [:home_page]
   

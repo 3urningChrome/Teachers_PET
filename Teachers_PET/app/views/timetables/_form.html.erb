@@ -12,9 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
+  
+  <div class="field">
+    <%= f.label :school %><br>
+    <%= f.text_field :school %>
+  </div>
+  
   <div class="field">
     <%= f.label :year_start %><br>
     <%= f.date_select :year_start %>
@@ -23,14 +29,7 @@
     <%= f.label :year_end %><br>
     <%= f.date_select :year_end %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :school %><br>
-    <%= f.text_field :school %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

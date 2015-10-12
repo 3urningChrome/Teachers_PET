@@ -5,7 +5,7 @@ class TimetablesController < ApplicationController
   # GET /timetables
   # GET /timetables.json
   def index
-    @timetables = Timetable.all
+    @timetables = current_user.timetables.all
   end
 
   # GET /timetables/1
@@ -25,11 +25,11 @@ class TimetablesController < ApplicationController
   # POST /timetables
   # POST /timetables.json
   def create
-    @timetable = Timetable.new(timetable_params)
+    @timetable = current_user.timetables.new(timetable_params)
 
     respond_to do |format|
       if @timetable.save
-        format.html { redirect_to @timetable, notice: 'Timetable was successfully created.' }
+        format.html { redirect_to "/timetables", notice: 'Timetable was successfully created.' }
         format.json { render :show, status: :created, location: @timetable }
       else
         format.html { render :new }

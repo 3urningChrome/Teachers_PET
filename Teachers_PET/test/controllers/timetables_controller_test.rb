@@ -72,7 +72,7 @@ class TimetablesControllerTest < ActionController::TestCase
       post :create, timetable: { name: @timetable.name, school: @timetable.school, user_id: @timetable.user_id, year_end: @timetable.year_end, year_start: @timetable.year_start }
     end
 
-    assert_redirected_to timetable_path(assigns(:timetable))
+    assert_redirected_to "/timetables"
   end
 
   test "should show timetable" do

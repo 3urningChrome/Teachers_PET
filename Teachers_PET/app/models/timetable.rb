@@ -7,15 +7,18 @@ class Timetable < ActiveRecord::Base
     validate :year_start_before_year_end
     validates :name, presence: true
     
-    before_destroy :do_not_delete_if_last_timetable_on_user
+    after_initialize :setup_defaults
     before_validation :set_default_dates_if_blank
     before_validation :set_default_name_if_blank
+    before_destroy :do_not_delete_if_last_timetable_on_user
+
     
     
     private
     
-    def do_not_delete_if_last_timetable_on_user
-        return false if User.find(self.user_id).timetables.count == 1
+    def setup_defaults
+        set_default_dates_if_blank
+        set_default_name_if_blank
     end
     
     def set_default_dates_if_blank
@@ -31,4 +34,8 @@ class Timetable < ActiveRecord::Base
     def set_default_name_if_blank
         self.name = "<Name me>" if self.name.blank?
     end
+    
+    def do_not_delete_if_last_timetable_on_user
+        return false if User.find(self.user_id).timetables.count == 1
+    end    
 end

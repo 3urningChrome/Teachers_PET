@@ -6,7 +6,13 @@
       <div id="navbar">
         <% if signed_in? %>
           <ul class="nav navbar-nav">
- 
+            <%= form_tag root_path, class: 'timetable_select' do %>
+              <%= select_tag 'set_timetable',
+               options_from_collection_for_select(current_user.timetables, "id", "name", current_user.selected_timetable_id),
+                onchange: 'this.form.submit()' %>
+              <%= submit_tag 'submit' %>
+              <%= javascript_tag "$('.timetable_select input').hide()" %>
+            <% end %>
           </ul>
         <% end %>
 
@@ -14,6 +20,7 @@
           <% if signed_in? %>
             <li><span id="banner-username"><%= current_user.email %></span></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+            <li><%= link_to 'Settings', timetables_path %></li>
           <% else %>
             <li><%= link_to 'Sign in', sign_in_path %></li>
           <% end %>

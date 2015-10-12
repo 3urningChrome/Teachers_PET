@@ -29,7 +29,6 @@ class PagesControllerTest < ActionController::TestCase
     assert_select "form input" do
       assert_select "[value=?]", 'Sign up' 
     end
-   
   end  
 
   
@@ -45,5 +44,19 @@ class PagesControllerTest < ActionController::TestCase
     sign_in_as(User.first)
     get :home_page
     assert_select 'a', 'Sign out'
+  end
+  
+    test "logged in user should be able to go to settings" do
+    sign_in_as(User.first)
+    get :home_page
+    assert_select 'a', 'Settings'
+  end
+  
+  test "logged in user should see timetable selection" do
+    sign_in_as(User.first)
+    get :home_page
+    assert_select "form" do
+      assert_select "[id=?]", 'set_timetable'
+    end
   end
 end 
