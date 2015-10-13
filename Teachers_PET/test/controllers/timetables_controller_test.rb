@@ -72,7 +72,7 @@ class TimetablesControllerTest < ActionController::TestCase
       post :create, timetable: { name: @timetable.name, school: @timetable.school, user_id: @timetable.user_id, year_end: @timetable.year_end, year_start: @timetable.year_start }
     end
 
-    assert_redirected_to "/timetables"
+    assert_redirected_to settings_path
   end
 
   test "should show timetable" do
@@ -90,7 +90,7 @@ class TimetablesControllerTest < ActionController::TestCase
   test "should update timetable" do
     sign_in_as(User.first)
     patch :update, id: @timetable, timetable: { name: 1, school: @timetable.school, user_id: @timetable.user_id, year_end: @timetable.year_end, year_start: @timetable.year_start }
-    assert_redirected_to timetable_path(assigns(:timetable))
+    assert_redirected_to settings_path
     updated_timetable = Timetable.find(@timetable.id)
     assert_not updated_timetable.name.eql?(@timetable.name), updated_timetable.name #i.e. the save should have worked
   end

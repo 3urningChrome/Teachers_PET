@@ -1,5 +1,6 @@
 class Timetable < ActiveRecord::Base
     belongs_to :user
+    has_many :periods
     
     validates :user_id, presence: true 
     validates :year_start, presence: true

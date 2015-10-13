@@ -29,7 +29,7 @@ class TimetablesController < ApplicationController
 
     respond_to do |format|
       if @timetable.save
-        format.html { redirect_to "/timetables", notice: 'Timetable was successfully created.' }
+        format.html { redirect_to settings_path, notice: 'Timetable was successfully created.' }
         format.json { render :show, status: :created, location: @timetable }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class TimetablesController < ApplicationController
   def update
     respond_to do |format|
       if @timetable.update(timetable_params)
-        format.html { redirect_to @timetable, notice: 'Timetable was successfully updated.' }
+        format.html { redirect_to settings_path, notice: 'Timetable was successfully updated.' }
         format.json { render :show, status: :ok, location: @timetable }
       else
         format.html { render :edit }

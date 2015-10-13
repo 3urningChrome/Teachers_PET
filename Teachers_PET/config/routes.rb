@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :periods
   resources :timetables
   resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   get 'pages/index'
   get 'pages/home_page'
   post "/" => 'pages#set_current_timetable'
+  get "/settings" => "pages#settings", as: "settings"
 
   resources :pages, only: [:home_page]
   

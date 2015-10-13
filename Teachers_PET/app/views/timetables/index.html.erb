@@ -1,28 +1,22 @@
 
-<h1>Timetable - Settings</h1>
+<h3>Timetables</h3>
 
 <table>
   <thead>
     <tr>
-      <th>Year start</th>
-      <th>Year end</th>
-      <th>Name</th>
-      <th>School</th>
-      <th colspan="3"></th>
+      <th class="col-md-1"> </th>
+      <th class="col-md-1">Year start</th>
+      <th class="col-md-1">Year end</th>
+      <th class="col-md-4">Name</th>
+      <th class="col-md-3">School</th>
+       <th class="col-md-2"> </th>
     </tr>
   </thead>
 
   <tbody>
     <% @timetables.each do |timetable| %>
       <tr>
-        <td><%= timetable.year_start %></td>
-        <td><%= timetable.year_end %></td>
-        <td><%= timetable.name %></td>
-        <td><%= timetable.school %></td>
-        <td><%= link_to 'view', timetable %></td>
-        <% if @timetables.count > 1 then %>
-        <td><%= link_to 'Delete', timetable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <%= render timetable %>
       </tr>
     <% end %>
   </tbody>

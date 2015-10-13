@@ -1,0 +1,10 @@
+<td><%= link_to 'Edit', edit_timetable_path(timetable) %> | 
+    <% if @timetables.count > 1 then %>
+      <%= link_to 'Delete', timetable, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+</td>
+<td><%= timetable.year_start %></td>
+<td><%= timetable.year_end %></td>
+<td><%= timetable.name %></td>
+<td><%= timetable.school %></td>
+

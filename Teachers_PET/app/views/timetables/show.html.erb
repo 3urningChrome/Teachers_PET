@@ -1,24 +1,23 @@
 
 <p>
   <strong>Year start:</strong>
-  <%= best_in_place @timetable, :year_start %>
+  <%= @timetable.year_start %>
 </p>
 
 <p>
   <strong>Year end:</strong>
-  <%= best_in_place @timetable, :year_end %>
+  <%= @timetable.year_end %>
 </p>
 
 <p>
   <strong>Name:</strong>
-  <%= best_in_place @timetable, :name %>
+  <%= @timetable.name %>
 </p>
 
 <p>
   <strong>School:</strong>
-  <%= best_in_place @timetable, :school %>
+  <%= @timetable.school %>
 </p>
 
 <%= link_to 'Edit', edit_timetable_path(@timetable), {:class => "edit_link"} %> 
-<%= javascript_tag "$('.edit_link').hide()" %>
 <%= link_to 'Back', timetables_path %>

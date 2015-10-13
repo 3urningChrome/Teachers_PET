@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Listing Periods for "<%= Timetable.find(current_user.selected_timetable_id).name %>"</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th class="col-md-1"></th>
+      <th class="col-md-1">Start time</th>
+      <th class="col-md-1">End time</th>
+      <th class="col-md-3">Name</th>
+
+      <th class="col-md-6"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @periods.each do |period| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_period_path(period) %> | <%= link_to 'Delete', period, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= period.start_time_display %></td>
+        <td><%= period.end_time_display %></td>        
+        <td><%= period.name %></td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Period', new_period_path %>
