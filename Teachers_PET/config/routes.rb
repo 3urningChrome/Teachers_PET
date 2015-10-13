@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :holidays
   resources :periods
   resources :timetables
   resources :passwords, controller: "passwords", only: [:create, :new]

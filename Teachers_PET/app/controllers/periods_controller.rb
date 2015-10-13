@@ -58,7 +58,7 @@ class PeriodsController < ApplicationController
   def destroy
     @period.destroy
     respond_to do |format|
-      format.html { redirect_to periods_url, notice: 'Period was successfully destroyed.' }
+      format.html { redirect_to settings_path, notice: 'Period was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

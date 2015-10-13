@@ -98,6 +98,6 @@ class PeriodsControllerTest < ActionController::TestCase
     assert_difference('Period.count', -1) do
       delete :destroy, id: @period
     end
-    assert_redirected_to periods_path
+    assert_redirected_to settings_path
   end
 end

@@ -1,0 +1,30 @@
+
+
+<h3>Listing Holidays for "<%= Timetable.find(current_user.selected_timetable_id).name %>"</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th class="col-md-1"></th>
+      <th class="col-md-1">Start date</th>
+      <th class="col-md-1">End date</th>
+      <th class="col-md-4">Name</th>
+      <th class="col-md-5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @holidays.each do |holiday| %>
+      <tr>
+        <td><%= link_to 'Edit', edit_holiday_path(holiday) %> | <%= link_to 'Delete', holiday, method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+        <td><%= holiday.start_date %></td>
+        <td><%= holiday.end_date %></td>
+        <td><%= holiday.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Holiday', new_holiday_path %>
